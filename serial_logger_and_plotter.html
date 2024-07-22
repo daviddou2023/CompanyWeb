@@ -3,24 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <title>Serial Logger and Plotter</title>
+    <!-- 引入Chart.js库 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </head>
   <body>
+    <!-- 创建一个画布用于绘制图表 -->
     <canvas id="myChart" height="100"></canvas>
+    <!-- 创建连接和结束按钮 -->
     <div>
-      <button id="butConnect">connect</button><span style="padding: 1%"></span
-      ><button id="butEnd">end</button>
+      <button id="butConnect">connect</button><span style="padding: 1%"></span>
+      <button id="butEnd">end</button>
     </div>
+    <!-- 显示接收数据的区域 -->
     <div style="margin: 10px">Received:</div>
     <div id="received-data-list" style="border: groove; margin: 10px"></div>
     <script>
-      /*** find the chart and list tag below ***/
+      /*** 查找图表和列表标签 ***/
       var ctx = document.getElementById("myChart").getContext("2d");
       var chart = new Chart(ctx, {
-        // The type of chart we want to create
+        // 要创建的图表类型
         type: "line",
 
-        // The data for our dataset
+        // 数据集
         data: {
           labels: [],
           datasets: [
@@ -38,7 +42,7 @@
             },
           ],
         },
-        // Configuration options go here
+        // 配置选项
         options: {
           title: {
             display: true,
@@ -47,53 +51,55 @@
         },
       });
 
+      // 获取显示数据的元素
       const dataList = document.getElementById("received-data-list");
-      /*** find the chart and list tag above***/
+      /*** 查找图表和列表标签结束 ***/
 
-      /*** butConnect listener below ***/
+      /*** butConnect 按钮监听器 ***/
       let keepReading = true;
       let reader;
       let writer;
-      // all data parsed are stored in a list ordered by received time of the data frame.
+      // 存储所有接收到的数据帧
       let receivedframe = [];
 
       document
         .getElementById("butConnect")
         .addEventListener("click", async () => {
+          // 请求访问串口
           const port = await navigator.serial.requestPort();
-          await port.open({ baudRate: 9600 }); // set baud rate
+          // 以9600波特率打开串口
+          await port.open({ baudRate: 9600 });
           keepReading = true;
           reader = port.readable.getReader();
           writer = port.writable.getWriter();
 
-          // set how to write to device intervally
+          // 设置定期写入设备的命令
           const writeInt = setInterval(async () => {
             const commandframe = new Uint8Array([
               0x00,
               0xff,
-              /*...some bytes to be sent*/
+              /*...一些待发送的字节*/
             ]);
             await writer.write(commandframe);
-          }, 3000); // send a frame every 3000ms
+          }, 3000); // 每3000毫秒发送一次命令帧
 
           while (port.readable && keepReading) {
             try {
               while (true) {
                 const { value, done } = await reader.read();
                 if (done) {
-                  // Allow the serial port to be closed later.
+                  // 允许稍后关闭串口
                   reader.releaseLock();
-                  // Allow the serial port to be closed later.
                   writer.releaseLock();
                   break;
                 }
                 if (value) {
-                  /*** TODO: deal with the data value ***/
+                  /*** 处理接收到的数据 ***/
                   dealWithData(value);
                 }
               }
             } catch (error) {
-              // Handle non-fatal read error.
+              // 处理非致命的读取错误
               console.error(error);
             } finally {
               console.log(port.readable, keepReading);
@@ -103,11 +109,11 @@
           await port.close();
           console.log("port closed");
         });
-      /*** butConnect listener above ***/
+      /*** butConnect 按钮监听器结束 ***/
 
-      /*** function dealWithData below ***/
+      /*** 处理数据的函数 ***/
       function dealWithData(value) {
-        // Convert the value from a Uint8Array to a string and split by comma
+        // 将Uint8Array类型的数据转换为字符串并按逗号分割
         let dataStr = new TextDecoder().decode(value).trim();
         let [heartRate, bloodOxygen] = dataStr.split(',').map(Number);
 
@@ -119,39 +125,39 @@
             bloodOxygen,
           };
 
-          // record the frame
+          // 记录数据帧
           receivedframe.push(frame);
 
-          // print data on the page
+          // 在页面上显示数据
           dataList.innerHTML += `<p>[${datatime.toLocaleString()}] -> Heart Rate: ${heartRate}, Blood Oxygen: ${bloodOxygen}</p>`;
 
-          // update the chart
+          // 更新图表
           chart.data.labels.push(datatime.toLocaleTimeString());
           chart.data.datasets[0].data.push(heartRate);
           chart.data.datasets[1].data.push(bloodOxygen);
           chart.update();
         }
       }
-      /*** function dealWithData above ***/
+      /*** 处理数据的函数结束 ***/
 
-      /*** butEnd listener below ***/
+      /*** butEnd 按钮监听器 ***/
       document.getElementById("butEnd").addEventListener("click", async () => {
         keepReading = false;
         reader.cancel();
-        // create a new handle
+        // 创建一个新的文件句柄
         const jsonHandle = await window.showSaveFilePicker();
-        // create a FileSystemWritableFileStream to write to
+        // 创建一个可写入的文件流
         const writableStream = await jsonHandle.createWritable();
-        // write our file
+        // 写入文件
         const aBlob = new Blob([JSON.stringify(receivedframe)], {
           type: "text/plain",
         });
         await writableStream.write(aBlob);
         receivedframe = [];
-        // close the file and write the contents to disk.
+        // 关闭文件并将内容写入磁盘
         await writableStream.close();
       });
-      /*** butEnd listener above ***/
+      /*** butEnd 按钮监听器结束 ***/
     </script>
   </body>
 </html>
