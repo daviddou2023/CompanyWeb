@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>珍惜粮食 倡导节约</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #333;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        transition: background-color 0.3s;
+    }
+    nav ul.scrolled {
+        background-color: #222;
+    }
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        display: inline-block;
+    }
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+    .project-container {
+        display: flex;
+        margin: 80px auto 20px; /* Adjusted margin to account for fixed nav */
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        max-width: 1200px;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    .project-container.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .project-image {
+        flex: 1;
+        max-width: 40%;
+        margin-right: 20px;
+        border-radius: 8px;
+        transition: opacity 1s;
+        opacity: 0;
+    }
+    .project-image.visible {
+        opacity: 1;
+    }
+    .project-info {
+        flex: 2;
+        padding: 10px 20px;
+    }
+    .project-info h2, .project-info h3, .project-info p {
+        margin: 10px 0;
+    }
+    .project-info h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #007BFF;
+    }
+    .project-info h3 {
+        font-size: 24px;
+        color: #555;
+    }
+    .project-info p {
+        font-size: 18px;
+        color: #666;
+    }
+   
+    #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50%;
+        display: none;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+</style>
+<!-- 引入 jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入外部的 script.js 文件 -->
+<script src="JS/script.js"></script>
+<script src="JS/time.js"></script>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html"  >主页</a></li>
+        <li><a href="application-scenarios.html" >应用场景</a></li>
+        <li><a href="workers-information.html" >工人信息</a></li>
+        <li><a href="real-time.html" >实时监测</a></li>
+        <li><a href="contact-us.html" >联系我们</a></li>
+        <li><a href="login.html" >登录</a></li>
+            <li id="time-container"><span id="current-time"></span></li>
+    </ul>
+</nav>
+<img src="images/index-main.jpg" alt="" width="100%">
+
+<div class="project-container" id="project-container">
+    <img src="images/html1-p6.jpg" alt="Project Image" class="project-image" id="project-image">
+    <div class="project-info">
+      <h2>项目名称 &#58; 农业生产和温室管理
+        <a href="charity-projects.html" class="back-button">&#8592; 返回</a>
+      </h2>
+        <h3>发布时间</h3>
+        <p>2023年3月15日</p>
+        <h3>背景</h3>
+        <p>农业生产和温室管理是现代农业的重要组成部分，旨在提高农作物的产量和质量，满足不断增长的市场需求。随着科技的进步，现代农业逐渐向智能化和自动化方向发展。然而，农业生产和温室管理仍然依赖于大量的人工操作，特别是在播种、施肥、灌溉、除草、采摘等环节，这些工作通常需要长时间的体力劳动，容易导致工人疲劳。</p>
+        <h3>目的</h3>
+        <p>开发一套面向管理者的疲劳检测系统，旨在实时反馈农业生产和温室管理工人的疲劳程度至管理层，使其能够及时预警和关注疲劳度较高的工人，从而避免意外事件的发生。</p>
+    </div>
+</div>
+
+<footer>
+    <table>
+        <tr>
+            <td><h3>友情链接</h3></td>
+        </tr>
+        <tr>
+            <td><a href="index.html">智芯护安首页</a></td>
+        </tr>
+    </table>
+
+    <p id="copy">&copy;版权所有：智芯护安 地址&#58;XX市XX区XXXX街XX号 邮编&#58;100000</p>
+</footer>
+
+<div id="back-to-top">&#8679;</div>
+
+
+</body>
+</html>

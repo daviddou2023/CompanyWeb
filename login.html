@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style>
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+</style>
+<script src="JS/time.js"></script>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html"  >主页</a></li>
+			<li><a href="application-scenarios.html" >应用场景</a></li>
+			<li><a href="workers-information.html" >工人信息</a></li>
+			<li><a href="real-time.html" >实时监测</a></li>
+			<li><a href="contact-us.html" >联系我们</a></li>
+			<li><a href="login.html" >登录</a></li>
+				<li id="time-container"><span id="current-time"></span></li>
+    </ul>
+</nav>
+<div class="box" id="login">
+    <div class="title">
+        <h1 style="color: white;">登录</h1>
+    </div>
+    <table id="t5">
+        <tr>
+            <td><p>用户名:</p></td>
+            <td><input type="text" maxlength="11" placeholder="请输入您的用户名/手机/邮箱（默认为root）" class="input"></td>
+        </tr>
+        <tr>
+            <td><p>密码:</p></td>
+            <td><input type="password" maxlength="6" placeholder="请输入您的密码（默认为123）" class="input"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" style="margin-left: 20px;">
+                <span style="color: white;">我已同意相关协议。</span>
+                <a href="#" style="color: white;">立即注册</a></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <input type="button" value="立即登录" id="btn" onclick="login()">
+                <div id="error-msg" class="error-message"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<footer>
+    <table>
+        <tr>
+            <td><h3>友情链接</h3></td>
+        </tr>
+        <tr>
+            <td><a href="index.html">智芯护安首页</a></td>
+        </tr>
+    </table>
+
+    <p id="copy">&copy;版权所有：智芯护安 地址&#58;XX市XX区XXXX街XX号 邮编&#58;100000</p>
+</footer>
+<script>
+    function login() {
+        var username = document.querySelector('input[type="text"]').value;
+        var password = document.querySelector('input[type="password"]').value;
+        var errorMsg = document.getElementById('error-msg');
+
+        if (username === "root" && password === "123") {
+            location.href = 'index.html';
+        } else {
+            errorMsg.textContent = "您输入的信息有误";
+        }
+    }
+</script>
+</body>
+</html>

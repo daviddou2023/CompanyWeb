@@ -1,0 +1,376 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: Arial, sans-serif;
+	background-color: #f8f9fa;
+	color: #333}
+.box{
+	width: 1500px;
+	background-color: white;
+	border-radius: 30px;
+	padding-bottom: 40px;
+}
+a{text-decoration: none;}
+.login-h1 {
+	margin-top: 150px;
+	font-weight: lighter;
+	color: white;
+
+}
+nav{
+	width: 100%;
+	height: 80px;
+	background-image: url("../images/slider_bg3.png");
+	background-size: 100%;
+	background-position: center;
+	position: fixed;
+	z-index: 1000;
+
+}
+nav li{float: left;list-style: none}
+nav a{
+	display: inline-block;
+	width: 180px;
+	font-size: 20px;
+	line-height: 80px;
+	color:rgb(255,255,255);
+	text-align: center;
+}
+nav a:hover{
+	color: white;
+	background-color:rgba(255,255,255,0.4)
+}
+nav audio{
+	margin-top: 10px;
+	margin-left: 70px;
+}
+#time-container {
+	margin-top: 30px;
+	margin-right: 0px;
+	font-size: 20px;
+	color: white;
+}
+.title{
+	display: flex;
+	font-family: "华文行楷";
+	font-size: 24px;
+	letter-spacing: 5px;
+	width:500px;
+	margin: 0 auto;
+	align-content: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color:rgb(0,0,0);
+	justify-content: center
+}
+.title h1{
+	font-weight: lighter;
+	color: black;
+}
+.title img{
+	width: 50px;
+	height: 50px;
+	padding-right: 5px;
+}
+#t1{
+	width: 1400px;
+	margin: 0 auto;
+	font-weight: bold;
+	font-family: "仿宋";font-size: 25px;
+	line-height: 35px;
+}
+#t1 img{
+	width: 300px;
+	height: 300px;
+	margin-right: 20px;
+}
+#t1 span{
+	font-size: 28px;font-weight: bolder;color: #DD5034
+}
+.news{
+	width: 1100px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.news span{
+	color:#707070;
+	margin-right: 10px;
+}
+#t2{
+	font-size: 20px;
+	width: 600px;
+}
+.news div h3{
+	position: absolute;
+	top: 295px;
+	color: white;
+	background-color: rgba(0,0,0,0.7);
+	line-height: 50px;
+	width: 440px;
+	padding-left: 20px;letter-spacing: 2px;
+}
+#t2 a,footer a{
+	color:black;
+}
+.news div a{
+	color: white
+}
+.news div a:hover{
+	border-bottom: 2px solid white;
+}
+#t2 a:hover,footer a:hover,#t5 a:hover{
+	color: rgba(222,86,59,1.00)
+}
+footer{
+	background-image: url("../images/index-footer.jpeg");
+	width: 100%;
+	display: flex;
+	justify-content:space-around;
+	padding-top: 20px;
+	line-height: 30px;
+	background-size: 100%;
+	background-position: center;
+	letter-spacing: 1px;
+	align-items: center;
+	flex-wrap: wrap
+}
+footer img{
+	width: 30px;
+	height: 30px;
+}
+footer div{
+	text-align: center
+}
+#copy{
+	width: 100%;
+	text-align: center;
+	color: rgba(86,86,86,1.00)
+}
+.charity-projects {
+	display: flex;
+	flex-wrap: wrap;
+	width: 1200px;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+.charity-projects img{
+	width: 300px;
+	height: 250px;
+}
+.charity-projects div{
+	width: 340px;
+	text-align: center;
+	background-color:rgb(0,0,0);
+	padding-top: 20px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+.charity-projects p{
+	text-align: left;
+	padding: 15px;
+	color: white;
+}
+.charity-projects h3{
+	letter-spacing: 3px;
+	margin-top: 10px;
+	color:rgba(222,89,57,1.00);font-family:"华文中宋"
+}
+.platform-activities p{
+	color: white;
+}
+.platform-activities{
+	width: 1280px;
+	margin: 0 auto;
+	background-color: rgb(0,0,0);
+	height: 300px;
+	margin-bottom: 30px;
+}
+.platform-activities div{
+	line-height: 30px;
+	padding: 20px;
+	width: 50%;
+	float: left
+}
+.img{
+	width:600px;
+	height: 300px;
+	float: left
+}
+.platform-activities h3,.food h3{
+	text-align: center;
+	font-size: 25px;;font-family: "华文中宋";letter-spacing: 5px;
+	line-height: 50px;color:#DD5034
+}
+
+.form-control-contact-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #555; /* 边框颜色设置为较深的灰色 */
+  border-radius: 3px;
+  background-color: white; /* 输入框背景颜色设置为较深的灰色 */
+  color: black; /* 输入框文字颜色设置为白色 */
+}
+.video{
+	width: 1450px;
+	margin: 0 auto;
+}
+.video video{
+	border-radius: 20px;
+}
+.art{
+	width: 1300px;
+	margin: 0 auto;
+}
+#t3 img{
+	width: 230px;
+	height: 320px;
+}
+#t3{
+	width: 1300px;
+	margin-top: 10px;
+	line-height: 25px;
+}
+.art span{
+	color:#DD5034;
+	margin-right: 5px;
+}
+.art h2{
+	letter-spacing: 3px;
+	margin-bottom: 20px;font-family:"仿宋"
+}
+#t4 img{
+	width: 300px;
+	height: 250px;
+	margin-right: -80px;
+}
+#t4 {
+	line-height: 35px;
+	width: 1200px;
+	margin: 0 auto;
+}
+#t4 h3{
+	font-family: "华文宋体";
+}
+.cr{
+	color: #838383
+}
+#login{
+	background-image: url("../images/slider_bg4.jpg");
+	background-size: 100% 100%;
+	height: 550px;
+}
+#t5{
+	width: 420px;
+	height: 300px;
+	margin: 0 auto
+}
+.input{
+	width: 320px;
+	height: 40px;padding-left: 10px;
+	margin-left: 20px;border-radius: 10px;border: 0px;
+}
+#btn{
+	width: 200px;
+	text-align: center;
+	height: 40px;
+	background-color: #FFFFFF;
+	color: #A2311B;font-size: 20px;letter-spacing: 10px;padding-left: 12px;
+	border-radius: 10px;
+	border: 0px;cursor: pointer
+}
+#btn:hover{
+	background-color: #EB955C;color: white
+}
+#t5 a{
+	font-size: 13px;
+	margin-right: 10px;
+	margin-left: 100px;
+}
+
+.back-button {
+	padding: 5px 10px; /* 调整按钮的内边距 */
+	font-size: 14px; /* 调整按钮的字体大小 */
+	background-color: #007BFF;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-left: 10px; /* 调整按钮与文本之间的间距 */
+	transition: background-color 0.3s;
+}
+
+.back-button:hover {
+	background-color: #0056b3;
+}
+
+
+.contact_form {
+  background-color: #000; /* 设置背景为黑色 */
+  padding: 20px;
+  border: 1px solid #333; /* 边框颜色稍微亮一点，和背景区分开 */
+  border-radius: 5px;
+  color: #fff; /* 文字颜色设置为白色 */
+}
+
+.contact_form_heading_wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact_form_title {
+  font-size: 32px;
+  color: #fff; /* 标题颜色设置为白色 */
+  margin-bottom: 10px;
+}
+
+.contact_form p {
+  font-size: 16px;
+  color: #fff; /* 段落文字颜色设置为白色 */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #555; /* 边框颜色设置为较深的灰色 */
+  border-radius: 3px;
+  background-color: #222; /* 输入框背景颜色设置为较深的灰色 */
+  color: #fff; /* 输入框文字颜色设置为白色 */
+}
+
+textarea.form-control {
+  height: 150px;
+  resize: vertical; /* 允许垂直拉伸 */
+}
+
+.power_button_group {
+  text-align: center;
+}
+
+.power_button {
+  background-color: #337ab7; /* 按钮背景颜色 */
+  color: #fff; /* 按钮文字颜色设置为白色 */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.power_button:hover {
+  background-color: #286090; /* 鼠标悬停时按钮背景颜色 */
+}
+
+.effect_1 {
+  /* 可以根据需要添加其他按钮效果的样式 */
+}

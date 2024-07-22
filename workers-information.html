@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>工人信息</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="JS/time.js"></script>
+<style>
+    /* 样式表格 */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 25px; /* 设置表格字体大小 */
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px; /* 增加单元格内边距 */
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* 不同疲劳程度的颜色类 */
+    .normal {
+        color: green;
+    }
+    .mild-fatigue {
+        color: black;
+    }
+    .moderate-fatigue {
+        color: orange;
+    }
+    .severe-fatigue {
+        color: red;
+    }
+</style>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">主页</a></li>
+        <li><a href="application-scenarios.html">应用场景</a></li>
+        <li><a href="workers-information.html">工人信息</a></li>
+        <li><a href="real-time.html">实时监测</a></li>
+        <li><a href="contact-us.html">联系我们</a></li>
+        <li><a href="login.html">登录</a></li>
+        <li id="time-container"><span id="current-time"></span></li>
+    </ul>
+</nav>
+<img src="images/index-main.jpg" alt="" width="100%">
+<div class="box">
+    <div class="title">
+        <img src="images/thumbnail.webp" alt=""><h1>工人信息</h1><img src="images/thumbnail.webp" alt="">
+    </div>
+
+    <!-- 表格 -->
+    <table>
+        <tr>
+            <th>工号</th>
+            <th>姓名</th>
+            <th>操作环境</th>
+            <th>上班时间</th>
+            <th>下班时间</th>
+            <th>疲劳程度</th>
+        </tr>
+        <!-- 示例数据行 -->
+        <tr>
+            <td>001</td>
+            <td>张三</td>
+            <td>1号机械</td>
+            <td>09:00</td>
+            <td>18:00</td>
+            <td class="normal">正常状态</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>李四</td>
+            <td>3号机械</td>
+            <td>08:30</td>
+            <td>17:30</td>
+            <td class="mild-fatigue">轻度疲劳</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>王五</td>
+            <td>4号机械</td>
+            <td>09:30</td>
+            <td>17:30</td>
+            <td class="normal">正常状态</td>
+        </tr>
+        <tr>
+            <td>004</td>
+            <td>张明</td>
+            <td>8号机械</td>
+            <td>08:30</td>
+            <td>17:30</td>
+            <td class="moderate-fatigue">中度疲劳状态</td>
+        </tr>
+        <tr>
+            <td>005</td>
+            <td>王军</td>
+            <td>9号机械</td>
+            <td>08:30</td>
+            <td>17:30</td>
+            <td class="moderate-fatigue">中度疲劳状态</td>
+        </tr>
+        <tr>
+            <td>006</td>
+            <td>刘阳</td>
+            <td>2号机械</td>
+            <td>08:30</td>
+            <td>17:30</td>
+            <td class="severe-fatigue">重度疲劳状态</td>
+        </tr>
+    </table>
+</div>
+
+<footer>
+    <table>
+        <tr>
+            <td><h3>友情链接</h3></td>
+        </tr>
+        <tr>
+            <td><a href="index.html">智芯护安首页</a></td>
+        </tr>
+    </table>
+
+    <p id="copy">&copy;版权所有：智芯护安 地址&#58;XX市XX区XXXX街XX号 邮编&#58;100000</p>
+</footer>
+</body>
+</html>
